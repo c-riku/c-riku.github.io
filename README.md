@@ -5,13 +5,13 @@
 
 
 - *Ribeiro-Kumara C, et al. 2020. How do forest fires affect soil greenhouse gas emissions in upland boreal forests? A review. DOI [10.1016/j.envres.2020.109328.](https://doi.org/10.1016/j.envres.2020.109328)*
-  - Description of data collection and JMP scripts | [Repository: datainbrief-repo](https://github.com/c-riku/datainbrief-repo)
-  - Data analysis with R | [Notebook: datainbrief-binder](https://c-riku.github.io/datainbrief-binder/)
+  - Description of data collection and JMP scripts | [Datainbrief Repo](https://github.com/c-riku/datainbrief-repo)
+  - Data analysis with R | [Datainbrief 1](https://c-riku.github.io/datainbrief-R-scripts/)
   - Database | [Mendeley Data: Forest-fires-GHG database](https://data.mendeley.com/datasets/v7gxtvv9z3/1)
 
 
 - *Ribeiro-Kumara C, et al. 2020. Long-term effects of forest fires on soil greenhouse gas emissions and extracellular enzyme activities in a hemiboreal forest. DOI [10.1016/j.scitotenv.2019.135291.](https://doi.org/10.1016/j.scitotenv.2019.135291)*
-  - Data processing and analysis with R | [Notebook](https://c-riku.github.io/notebooks/)
+  - Data processing and analysis with R | [Datainbrief 2](https://c-riku.github.io/datainbrief-2-R-scripts/)
 
 > As I make these scripts available, I have been remaking the published figures for better data visualisation.
 
