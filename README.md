@@ -1,6 +1,6 @@
 # c-riku.github.io
 
-Source for my personal website: **https://c-riku.github.io/**. It's built with [Astro](https://astro.build) and deployed to GitHub Pages by a GitHub Action on every push to `main`.
+Source for my personal website: **https://c-riku.github.io/** (short link: [iki.fi/caius.ribeiro](https://iki.fi/caius.ribeiro)). It's built with [Astro](https://astro.build) and deployed to GitHub Pages by a GitHub Action on every push to `main`.
 
 ## Editing
 
