@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+  return work.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: { entry, next: work[(i + 1) % work.length] },
+  }));
+}
+
+const { entry, next } = Astro.props;
+const { Content } = await render(entry);
+const areaLabel = { data: 'Data engineering', bi: 'BI & reporting', ai: 'AI & automation' };
+---
+
+<Base title={`${entry.data.title} – Caius Ribeiro`} description={entry.data.summary}>
+  <header class="hero case-hero">
+    <div class="container">
+      <a class="back-link" href="/#work">← All work</a>
+      <p class="eyebrow">{areaLabel[entry.data.area]}</p>
+      <h1>{entry.data.title}</h1>
+      <p class="lede">{entry.data.summary}</p>
+      <div class="case-facts">
+        <span><strong>Context:</strong> {entry.data.context}</span>
+        <span><strong>When:</strong> {entry.data.period}</span>
+      </div>
+      <ul class="tags" aria-label="Tools">
+        {entry.data.tools.map((t) => <li>{t}</li>)}
+      </ul>
+    </div>
+  </header>
+  <div class="container">
+    <article class="prose">
+      <Content />
+    </article>
+    <div class="next-work">
+      <p class="kicker">Next case study</p>
+      <a href={`/work/${next.id}/`}><strong>{next.data.title} →</strong></a>
+    </div>
+  </div>
+</Base>

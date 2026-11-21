@@ -1,0 +1,239 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+
+const areaLabel = { data: 'Data engineering', bi: 'BI & reporting', ai: 'AI & automation' };
+
+const services = [
+  {
+    title: 'Data engineering',
+    text: 'Python and SQL pipelines that bring data from APIs and business systems into a layered warehouse, with automated loading, data-quality checks and infrastructure as code.',
+    tools: ['Python', 'SQL', 'Snowflake', 'BigQuery', 'dbt', 'Terraform', 'AWS', 'Google Cloud', 'GitHub Actions'],
+    icon: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>',
+  },
+  {
+    title: 'BI & reporting',
+    text: 'Power BI models and reports that management actually uses, from financial statements and P&L reconciliation to sales and resourcing KPIs, with source control from test to production.',
+    tools: ['Power BI', 'DAX', 'Microsoft Fabric', 'Power Query', 'Azure DevOps'],
+    icon: '<path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/>',
+  },
+  {
+    title: 'AI agents & automation',
+    text: 'Copilot Studio agents and Power Automate flows that fit into the tools people already use, grounded in the right knowledge and with a person in the approval loop.',
+    tools: ['Copilot Studio', 'Power Automate', 'MCP', 'AI prompts', 'Teams', 'SharePoint', 'Dataverse'],
+    icon: '<rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 7V3"/><circle cx="9" cy="13" r="1.2"/><circle cx="15" cy="13" r="1.2"/><path d="M2 12v2M22 12v2"/>',
+  },
+];
+
+const principles = [
+  {
+    title: 'Start from a real use case',
+    text: 'Turn the business question into a thin first data product or agent with clear acceptance criteria, built around a process people actually run.',
+  },
+  {
+    title: 'Build with production in mind',
+    text: 'Plan ingestion, modelling, access and deployment together from day one. For agents, ground them in the right knowledge and keep fixed steps where accuracy matters.',
+  },
+  {
+    title: 'Validate in short loops',
+    text: 'Put usable outputs in front of stakeholders early, refine together, and make quality visible through tests and audit views.',
+  },
+  {
+    title: 'Own the handover',
+    text: 'Source control, automated deployment and documentation of how things work and how to release or roll back, so others can maintain and extend the work.',
+  },
+];
+---
+
+<Base
+  title="Caius Ribeiro – Data & AI Developer"
+  description="Caius Ribeiro builds data pipelines, Power BI reporting and AI agents that people use in their daily work. Data Developer based in Helsinki, Finland."
+>
+  <header class="hero">
+    <div class="container hero-grid">
+      <img class="hero-photo" src="/photo.jpg" alt="Portrait of Caius Ribeiro" width="168" height="168" />
+      <div>
+        <p class="eyebrow">Data &amp; AI Developer · Helsinki</p>
+        <h1>Caius Ribeiro</h1>
+        <p class="lede">
+          I build <strong>data pipelines</strong>, <strong>Power BI reporting</strong> and{' '}<strong>AI agents</strong> that people use in their daily work, working directly with stakeholders from scoping to production.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#work">See my work</a>
+          <a class="button ghost" href="mailto:caius.ribeiro@iki.fi">Email</a>
+          <a class="button ghost" href="https://www.linkedin.com/in/caius-ribeiro/">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="block" id="services">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">What I do</p>
+        <h2>From raw data to decisions and automated work</h2>
+        <p>
+          I combine data engineering, BI and AI automation, so a solution can go from the source system
+          all the way to a report or an agent without changing hands.
+        </p>
+      </div>
+      <div class="grid three">
+        {
+          services.map((s) => (
+            <article class="card">
+              <div class="icon-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={s.icon} />
+              </div>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+              <ul class="tags" aria-label="Tools">
+                {s.tools.map((t) => <li>{t}</li>)}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="work">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">Selected work</p>
+        <h2>Recent projects</h2>
+        <p>Client work is described without naming the organisations involved.</p>
+      </div>
+      <div class="grid two">
+        {
+          work.map((w) => (
+            <a class="card work-card" href={`/work/${w.id}/`}>
+              <div class="meta">
+                <span class="area-label">{areaLabel[w.data.area]}</span>
+                <span>{w.data.period}</span>
+              </div>
+              <h3>{w.data.title}</h3>
+              <p>{w.data.summary}</p>
+              <ul class="tags" aria-label="Tools">
+                {w.data.tools.slice(0, 5).map((t) => <li>{t}</li>)}
+              </ul>
+              <span class="read-more">Read the case study →</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="approach">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">How I work</p>
+        <h2>Four principles</h2>
+        <p>The same approach whether the deliverable is a data platform, a report or an agent.</p>
+      </div>
+      <div class="grid two">
+        {
+          principles.map((p, i) => (
+            <article class="card principle">
+              <span class="num" aria-hidden="true">0{i + 1}</span>
+              <div>
+                <h3>{p.title}</h3>
+                <p>{p.text}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="career">
+    <div class="container two-col">
+      <div>
+        <p class="kicker">Career</p>
+        <h2>Aitomation Oy</h2>
+        <ol class="timeline">
+          <li>
+            <span class="when">02/2024 – present</span>
+            <h3>Data Developer</h3>
+            <p>
+              Design, build and maintain end-to-end data, BI and AI solutions for customers and for internal
+              teams, across Azure, Google Cloud and AWS.
+            </p>
+          </li>
+          <li>
+            <span class="when">06/2022 – 02/2024</span>
+            <h3>Junior Developer</h3>
+            <p>Developed and maintained Power BI reports and data models for customer projects.</p>
+          </li>
+          <li>
+            <span class="when">12/2021 – 06/2022</span>
+            <h3>Data &amp; Analytics Developer Trainee</h3>
+            <p>Supported customer projects while building a foundation in DAX, data modelling and visualisation.</p>
+          </li>
+        </ol>
+      </div>
+      <div>
+        <p class="kicker">Background</p>
+        <h2>Education &amp; certifications</h2>
+        <ul class="plain-list">
+          <li>
+            <strong>Microsoft Certified: Power BI Data Analyst Associate</strong>
+            <span class="sub">Microsoft</span>
+          </li>
+          <li>
+            <strong>Applied Machine Learning (5 ECTS)</strong>
+            <span class="sub">FITech Network University / University of Vaasa</span>
+          </li>
+          <li>
+            <strong>Doctoral studies, Environmental Science</strong>
+            <span class="sub">University of Helsinki · 2018 – present (on hold)</span>
+          </li>
+          <li>
+            <strong>Master of Science, Forest Sciences and Business</strong>
+            <span class="sub">University of Helsinki · 2017</span>
+          </li>
+          <li>
+            <strong>Bachelor of Engineering, Forestry</strong>
+            <span class="sub">Federal University of Espírito Santo · 2015</span>
+          </li>
+        </ul>
+        <p style="margin-top: 16px">
+          <a href="https://github.com/c-riku/licenses-and-certifications">All course certificates →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="earlier">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">Earlier work &amp; research</p>
+        <h2>Open projects and publications</h2>
+        <p>
+          Before moving into BI, I researched how forest fires affect soil greenhouse gas emissions. The analysis
+          code and data are public.
+        </p>
+      </div>
+      <div class="grid three">
+        <article class="card">
+          <h3>SQL data cleaning &amp; analysis</h3>
+          <p>MySQL projects on world life expectancy and US household income: deduplication with window functions, filling gaps, and exploratory analysis.</p>
+          <a href="https://github.com/c-riku/sql-projects">View on GitHub →</a>
+        </article>
+        <article class="card">
+          <h3>Forest fires &amp; soil emissions: review</h3>
+          <p>Systematic review in <em>Environmental Research</em> (2020), with an open database and a reproducible R notebook.</p>
+          <a href="https://doi.org/10.1016/j.envres.2020.109328">Paper</a>{' · '}<a href="https://c-riku.github.io/datainbrief-1-R-scripts/">Code</a>{' · '}<a href="https://data.mendeley.com/datasets/v7gxtvv9z3/1">Data</a>
+        </article>
+        <article class="card">
+          <h3>Fire effects in boreal &amp; hemiboreal forests</h3>
+          <p>Field studies in <em>Science of the Total Environment</em> (2020) and <em>Canadian Journal of Forest Research</em> (2022).</p>
+          <a href="https://doi.org/10.1016/j.scitotenv.2019.135291">Paper (2020)</a>{' · '}<a href="https://c-riku.github.io/datainbrief-2-R-scripts/">Code</a>{' · '}<a href="https://doi.org/10.1139/cjfr-2021-0354">Paper (2022)</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</Base>
