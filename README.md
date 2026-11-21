@@ -1,17 +1,29 @@
-> The root site now redirects to my portfolio at **https://c-riku.github.io/caius/**. This README remains as a quick index of publications and their code and data.
+# c-riku.github.io
 
-# List of publications and corresponding repos and datasets
-- *Ribeiro-Kumara C, et al. 2022. Short- to medium-term effects of crown and surface fires on soil respiration in a Canadian boreal forest. DOI [10.1139/cjfr-2021-0354.](https://cdnsciencepub.com/doi/10.1139/cjfr-2021-0354)*
+Source for my personal website: **https://c-riku.github.io/**. It's built with [Astro](https://astro.build) and deployed to GitHub Pages by a GitHub Action on every push to `main`.
 
+## Editing
 
-- *Ribeiro-Kumara C, et al. 2020. How do forest fires affect soil greenhouse gas emissions in upland boreal forests? A review. DOI [10.1016/j.envres.2020.109328.](https://doi.org/10.1016/j.envres.2020.109328)*
-  - Description of data collection and JMP scripts | [Datainbrief Repo](https://github.com/c-riku/datainbrief-repo) (JMP scripts)
-  - Data analysis with R | [Datainbrief 1 Notebook](https://c-riku.github.io/datainbrief-1-R-scripts/)
-  - Database | [Mendeley Data: Forest-fires-GHG database](https://data.mendeley.com/datasets/v7gxtvv9z3/1)
+| What | Where |
+|---|---|
+| Home page sections (what I do, approach, career, education, earlier work) | `src/pages/index.astro` |
+| Case studies, one Markdown file each | `src/content/work/*.md` |
+| Header, footer and page metadata | `src/layouts/Base.astro` |
+| Colours, fonts and layout | `src/styles/global.css` (colour tokens at the top) |
+| Photo and favicon | `public/` |
 
+To add a case study, copy an existing file in `src/content/work/`, change the front matter (`title`, `summary`, `area` = `data`/`bi`/`ai`, `context`, `period`, `tools`, `order`) and write the body. It appears on the home page automatically.
 
-- *Ribeiro-Kumara C, et al. 2020. Long-term effects of forest fires on soil greenhouse gas emissions and extracellular enzyme activities in a hemiboreal forest. DOI [10.1016/j.scitotenv.2019.135291.](https://doi.org/10.1016/j.scitotenv.2019.135291)*
-  - Data processing and analysis with R | [Datainbrief 2 Notebook](https://c-riku.github.io/datainbrief-2-R-scripts/)
+## Running locally
 
-> As I make these scripts available, I have been remaking the published figures for better data visualisation.
+```sh
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # output in dist/
+```
 
+## Publications and their code and data
+
+- Ribeiro-Kumara C, et al. 2022. Short- to medium-term effects of crown and surface fires on soil respiration in a Canadian boreal forest. [doi:10.1139/cjfr-2021-0354](https://doi.org/10.1139/cjfr-2021-0354)
+- Ribeiro-Kumara C, et al. 2020. How do forest fires affect soil greenhouse gas emissions in upland boreal forests? A review. [doi:10.1016/j.envres.2020.109328](https://doi.org/10.1016/j.envres.2020.109328) · [JMP scripts](https://github.com/c-riku/datainbrief-repo) · [R notebook](https://c-riku.github.io/datainbrief-1-R-scripts/) · [Dataset](https://data.mendeley.com/datasets/v7gxtvv9z3/1)
+- Ribeiro-Kumara C, et al. 2020. Long-term effects of forest fires on soil greenhouse gas emissions and extracellular enzyme activities in a hemiboreal forest. [doi:10.1016/j.scitotenv.2019.135291](https://doi.org/10.1016/j.scitotenv.2019.135291) · [R notebook](https://c-riku.github.io/datainbrief-2-R-scripts/)
