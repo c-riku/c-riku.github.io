@@ -1,6 +1,6 @@
-# c-riku.github.io
+# caiusribeiro.github.io
 
-Source for my personal website: **https://c-riku.github.io/** (short link: [iki.fi/caius.ribeiro](https://iki.fi/caius.ribeiro)). It's built with [Astro](https://astro.build) and deployed to GitHub Pages by a GitHub Action on every push to `main`.
+Source for my personal website: **https://caiusribeiro.github.io/** (short link: [iki.fi/caius.ribeiro](https://iki.fi/caius.ribeiro)). It's built with [Astro](https://astro.build) and deployed to GitHub Pages by a GitHub Action on every push to `main`.
 
 ## Editing
 
@@ -25,5 +25,5 @@ npm run build    # output in dist/
 ## Publications and their code and data
 
 - Ribeiro-Kumara C, et al. 2022. Short- to medium-term effects of crown and surface fires on soil respiration in a Canadian boreal forest. [doi:10.1139/cjfr-2021-0354](https://doi.org/10.1139/cjfr-2021-0354)
-- Ribeiro-Kumara C, et al. 2020. How do forest fires affect soil greenhouse gas emissions in upland boreal forests? A review. [doi:10.1016/j.envres.2020.109328](https://doi.org/10.1016/j.envres.2020.109328) · [JMP scripts](https://github.com/c-riku/datainbrief-repo) · [R notebook](https://c-riku.github.io/datainbrief-1-R-scripts/) · [Dataset](https://data.mendeley.com/datasets/v7gxtvv9z3/1)
-- Ribeiro-Kumara C, et al. 2020. Long-term effects of forest fires on soil greenhouse gas emissions and extracellular enzyme activities in a hemiboreal forest. [doi:10.1016/j.scitotenv.2019.135291](https://doi.org/10.1016/j.scitotenv.2019.135291) · [R notebook](https://c-riku.github.io/datainbrief-2-R-scripts/)
+- Ribeiro-Kumara C, et al. 2020. How do forest fires affect soil greenhouse gas emissions in upland boreal forests? A review. [doi:10.1016/j.envres.2020.109328](https://doi.org/10.1016/j.envres.2020.109328) · [JMP scripts](https://github.com/caiusribeiro/datainbrief-repo) · [R notebook](https://caiusribeiro.github.io/datainbrief-1-R-scripts/) · [Dataset](https://data.mendeley.com/datasets/v7gxtvv9z3/1)
+- Ribeiro-Kumara C, et al. 2020. Long-term effects of forest fires on soil greenhouse gas emissions and extracellular enzyme activities in a hemiboreal forest. [doi:10.1016/j.scitotenv.2019.135291](https://doi.org/10.1016/j.scitotenv.2019.135291) · [R notebook](https://caiusribeiro.github.io/datainbrief-2-R-scripts/)
